@@ -1,0 +1,119 @@
+$mainColor1: #2987be;
+$mainColor2: #1059b8;
+
+%diplay {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Azeret Mono', monospace;
+}
+
+.conteiner {
+    width: 45%;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+body {
+    background: linear-gradient(to top right, rgba(255, 0, 0, 0.48), rgba(0, 0, 255, 0.522));
+    height: 100vh;
+}
+
+.timer {
+    @extend %diplay;
+    &__block {
+        width: 150px;
+        border: 2px solid rgba(0, 0, 0, 0.383);
+        border-bottom-right-radius: 13px;
+        border-bottom-left-radius: 13px;
+        .time {
+            display: flex;
+            justify-content: center;
+            align-items:center;
+            color: #fff;
+            height: 150px;
+            background-color: $mainColor1;
+            font-size: 95px;
+            box-shadow: 5px -5px 5px 0px rgba(25, 43, 132, 0.25);
+
+        }
+        .title {
+            text-align: center;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding: 5px;
+            background-color: $mainColor2;
+        }
+    }
+}
+
+.buttons {
+    @extend %diplay;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 150px;
+    button {
+        border: 2px solid rgba(0, 0, 0, 0.604);
+        border-radius: 10px;
+        font-size: 18px;
+        padding: 10px;
+        width: 160px;
+        transition: .3 ease-in-out;
+        cursor: pointer;
+        
+        &.start, &.new {
+            color:$mainColor1;
+            &:hover {
+                background: $mainColor2;
+                color: #fff;
+            }
+
+            &:disabled {
+                cursor:not-allowed;
+                background: none;
+                color:#fff;
+            }
+        }
+
+        &.pause {
+            color:#e03b8b ;
+            &:hover {
+                background-color:#e03b8b;
+                color: #fff
+            }
+        }
+
+        &.stop {
+            color:rgb(194, 9, 9);
+            &:hover {
+                background-color:rgb(194, 9, 9);
+                color: #fff
+            }
+        }
+
+    }
+}
+
+.results-block {
+    position: absolute;
+    width: 250px;
+    left: 40px;
+    bottom: 0;
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+    border: 2px solid rgba(0, 0, 0, 0.604);
+    border-radius: 5px;
+    color: $mainColor2;
+    background: #fff;
+    .results__title {
+        padding: 20px;
+    }
+}
